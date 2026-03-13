@@ -4,8 +4,12 @@ import java.util.Scanner;
 
 public class Budget {
     static boolean end;
+    static ArrayList<Integer> purchases;
+    static Scanner scanner;
     public Budget(){
         end = false;
+        purchases = new ArrayList<>();
+        scanner = new Scanner(System.in);
     }
     // procedure: calculate the total spending based on an arraylist
     public static int calculateTotal(ArrayList<Integer> list) {
@@ -52,12 +56,10 @@ public class Budget {
     }
     public static void main(String[] args) {
         // variables setup
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your budget for the day");
         int budget = scanner.nextInt();
         int budget_left = budget;
         System.out.println("Nice, now you can input your purchases");
-        ArrayList<Integer> purchases = new ArrayList<Integer>();
         // ask users to input their spendins until either the spendings exceed the
         // budget or the users stop the inputs manually
         while (!end) {
