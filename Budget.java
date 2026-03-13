@@ -1,14 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Budget {
-    static boolean end;
-    static ArrayList<Integer> purchases;
-    static Scanner scanner;
-    public Budget(){
-        end = false;
-        purchases = new ArrayList<>();
-        scanner = new Scanner(System.in);
-    }
+    static boolean end = false;
+    static ArrayList<Integer> purchases = new ArrayList<>();
+    static Scanner scanner = new Scanner(System.in);
+
     // procedure: calculate the total spending based on an arraylist
     public static int calculateTotal(ArrayList<Integer> list) {
         int sum = 0;
@@ -17,6 +14,7 @@ public class Budget {
         }
         return sum;
     }
+
     // procedure: check if the spending will exceed the budget, and return true or
     // false based on the budget left and the spending
     public static boolean exceedBudget(int budget_left, int spending) {
@@ -27,7 +25,8 @@ public class Budget {
             return true;
         }
     }
-    //add new spendings to the arraylist and display the information to the users
+
+    // add new spendings to the arraylist and display the information to the users
     public static int addToPurchases(int purchase, int budget, ArrayList<Integer> purchases, int budget_left) {
         purchases.add(purchase);
         int sum = calculateTotal(purchases);
@@ -36,7 +35,8 @@ public class Budget {
         System.out.println("You have $" + budget_left + " left");
         return budget_left;
     }
-    //ask users if they want to input more purchases
+
+    // ask users if they want to input more purchases
     public static boolean morePurchases(Scanner scanner) {
         System.out.println("Would you like to enter another purchase? Answer Yes or No");
         String response = scanner.nextLine();
@@ -46,12 +46,14 @@ public class Budget {
             return true;
         }
     }
+
     public static void summary(int budget, ArrayList<Integer> purchases, int budget_left) {
         System.out.println("Thank you for using this App");
         System.out.println("Your budget for today is $" + budget);
         System.out.println("You've spent $" + calculateTotal(purchases) + " today");
         System.out.println("You have $" + budget_left + " left");
     }
+
     public static void main(String[] args) {
         // variables setup
         System.out.println("Enter your budget for the day");
@@ -65,13 +67,13 @@ public class Budget {
             int purchase = scanner.nextInt();
             scanner.nextLine();
             if (exceedBudget(budget_left, purchase)) {
-                budget_left=addToPurchases(purchase, budget, purchases, budget_left);
+                budget_left = addToPurchases(purchase, budget, purchases, budget_left);
             }
-            if(budget_left == 0){
+            if (budget_left == 0) {
                 end = true;
             }
-            if(!end){
-                if(!morePurchases(scanner)) {
+            if (!end) {
+                if (!morePurchases(scanner)) {
                     end = true;
                 }
             }
