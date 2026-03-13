@@ -1,7 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Budget {
+    static boolean end;
+    public Budget(){
+        end = false;
+    }
     // procedure: calculate the total spending based on an arraylist
     public static int calculateTotal(ArrayList<Integer> list) {
         int sum = 0;
@@ -48,7 +53,6 @@ public class Budget {
     public static void main(String[] args) {
         // variables setup
         Scanner scanner = new Scanner(System.in);
-        boolean end = false;
         System.out.println("Enter your budget for the day");
         int budget = scanner.nextInt();
         int budget_left = budget;
