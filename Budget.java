@@ -20,6 +20,7 @@ public class Budget {
             return true;
         }
     }
+    //add new spendings to the arraylist and display the information to the users
     public static int addToPurchases(int purchase, int budget, ArrayList<Integer> purchases, int budget_left) {
         purchases.add(purchase);
         int sum = calculateTotal(purchases);
@@ -28,6 +29,7 @@ public class Budget {
         System.out.println("You have $" + budget_left + " left");
         return budget_left;
     }
+    //ask users if they want to input more purchases
     public static boolean morePurchases(Scanner scanner) {
         System.out.println("Would you like to enter another purchase? Answer Yes or No");
         String response = scanner.nextLine();
