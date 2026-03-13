@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
-
 public class Budget {
     static boolean end;
     static ArrayList<Integer> purchases;
@@ -68,7 +66,6 @@ public class Budget {
             scanner.nextLine();
             if (exceedBudget(budget_left, purchase)) {
                 budget_left=addToPurchases(purchase, budget, purchases, budget_left);
-                
             }
             if(budget_left == 0){
                 end = true;
