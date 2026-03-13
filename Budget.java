@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Budget {
-
     // procedure: calculate the total spending based on an arraylist
     public static int calculateTotal(ArrayList<Integer> list) {
         int sum = 0;
@@ -11,7 +10,6 @@ public class Budget {
         }
         return sum;
     }
-
     // procedure: check if the spending will exceed the budget, and return true or
     // false based on the budget left and the spending
     public static boolean exceedBudget(int budget_left, int spending) {
@@ -30,7 +28,6 @@ public class Budget {
         System.out.println("You have $" + budget_left + " left");
         return budget_left;
     }
-
     public static boolean morePurchases(Scanner scanner) {
         System.out.println("Would you like to enter another purchase? Answer Yes or No");
         String response = scanner.nextLine();
@@ -46,7 +43,6 @@ public class Budget {
         System.out.println("You've spent $" + calculateTotal(purchases) + " today");
         System.out.println("You have $" + budget_left + " left");
     }
-
     public static void main(String[] args) {
         // variables setup
         Scanner scanner = new Scanner(System.in);
@@ -56,7 +52,6 @@ public class Budget {
         int budget_left = budget;
         System.out.println("Nice, now you can input your purchases");
         ArrayList<Integer> purchases = new ArrayList<Integer>();
-
         // ask users to input their spendins until either the spendings exceed the
         // budget or the users stop the inputs manually
         while (!end) {
