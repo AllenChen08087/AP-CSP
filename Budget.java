@@ -5,7 +5,7 @@ public class Budget {
     static boolean end = false;
     static ArrayList<Integer> purchases = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
-
+    
     // procedure: calculate the total spending based on an arraylist
     public static int calculateTotal(ArrayList<Integer> list) {
         int sum = 0;
@@ -27,6 +27,7 @@ public class Budget {
     }
 
     // add new spendings to the arraylist and display the information to the users
+    
     public static int addToPurchases(int purchase, int budget, ArrayList<Integer> purchases, int budget_left) {
         purchases.add(purchase);
         int sum = calculateTotal(purchases);
@@ -37,13 +38,18 @@ public class Budget {
     }
 
     // ask users if they want to input more purchases
+
+
+
     public static boolean morePurchases(Scanner scanner) {
-        System.out.println("Would you like to enter another purchase? Answer Yes or No");
+        while (true){
+            System.out.println("Would you like to enter another purchase? Answer Yes or No");
         String response = scanner.nextLine();
         if (response.equals("No") || response.equals("no")) {
             return false;
-        } else {
+        }else if (response.equals("Yes") || response.equals("yes")){
             return true;
+        }
         }
     }
 
@@ -62,6 +68,8 @@ public class Budget {
         System.out.println("Nice, now you can input your purchases");
         // ask users to input their spendins until either the spendings exceed the
         // budget or the users stop the inputs manually
+
+
         while (!end) {
             System.out.println("Please input the amount of money you've spent");
             int purchase = scanner.nextInt();
@@ -78,6 +86,8 @@ public class Budget {
                 }
             }
         }
+
+
         // provide summary to the users on their spendings
         summary(budget, purchases, budget_left);
         scanner.close();
